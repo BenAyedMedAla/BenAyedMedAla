@@ -16,8 +16,7 @@ backend, infra, and interface that make it usable. Lately that's mostly meant LL
 
 `Python` `Java` `C/C++/C#` `JavaScript/TypeScript` · `TensorFlow` `Keras` `Scikit-learn` `PyTorch` · `FastAPI` `React` `Next.js` `NestJS` `Flutter` `.NET` · `Docker` `Kubernetes` `CI/CD` `Terraform` · `PostgreSQL` `MongoDB` `Redis` `Neo4j` · `Spark` `Kafka` `Airflow`
 
-**Focus areas:**
-`Deep Learning` `LLM Fine-Tuning & Deployment` `RAG Systems` · `Speech/ASR` `Computer Vision` `Applied ML` · `Full-Stack Product Engineering`
----
+**Focus areas:** 
+`Deep Learning` · `LLM Fine-Tuning & Deployment` · `RAG Systems` · `Speech/ASR` · `Computer Vision` · `Applied ML` · `Full-Stack Product Engineering`---
 
 📫 Reach me: alabenayed214@gmail.com · [LinkedIn](https://www.linkedin.com/in/mohamed-ala-ben-ayed-7b3a992a6/) · [Portfolio](https://alabenayed-portfolio.vercel.app/)
