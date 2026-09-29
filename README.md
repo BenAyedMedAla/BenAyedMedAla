@@ -14,7 +14,7 @@ backend, infra, and interface that make it usable. Lately that's mostly meant LL
 
 **Some things I've worked with:**
 
-`Python` `Java` `C/C++/C#` `JavaScript/TypeScript` · `TensorFlow` `Keras` `Scikit-learn` `PyTorch` · `FastAPI` `React` `Next.js` `NestJS` `Flutter` `.NET` · `Docker` `Kubernetes` `CI/CD` `Terraform` · `PostgreSQL` `MongoDB` `Redis` `Neo4j` · `Spark` `Kafka` `Airflow`
+`Python` `Java` `C/C++/C#` `JavaScript/TypeScript` · `TensorFlow` `Keras` `Scikit-learn` `PyTorch` · `FastAPI` `React` `Next.js` `NestJS` `Flutter` · `Docker` `Kubernetes` `CI/CD` `Terraform` · `PostgreSQL` `MongoDB` `Redis` `Neo4j` · `Spark` `Kafka` `Airflow`
 
 **Focus areas:** 
 
