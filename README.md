@@ -107,7 +107,7 @@
 ---
 
 <p align="center">
-  <b>Hiring an AI/ML intern for Feb–Jul 2027 in Europe?</b><br>
-  I'm looking for a team that trains models and ships them.<br>
+  <b>Hiring an AI/ML intern for 2027?</b><br>
+  I'm looking for a team where I can contribute to real projects and learn from great engineers.<br>
   <a href="mailto:alabenayed214@gmail.com">Email me</a> · <a href="https://www.linkedin.com/in/benayedmedala/">LinkedIn</a> · <a href="https://alabenayed-portfolio.vercel.app/">Portfolio</a>
 </p>
