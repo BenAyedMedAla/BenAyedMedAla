@@ -56,7 +56,7 @@
   <a href="https://alabenayed-portfolio.vercel.app/">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-indabax-dark.svg">
-      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-indabax-light.svg" width="100%" alt="1st Place, IndabaX Tunisia 2025 AI Hackathon: eNodeB anomaly prediction with XGBoost/LightGBM and a fine-tuned BART Large model suggesting resolutions">
+      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-indabax-light.svg" width="100%" alt="1st Place, IndabaX Tunisia 2025">
     </picture>
   </a>
 </p>
@@ -64,7 +64,7 @@
   <a href="https://huggingface.co/alabenayed/TounsiLM-8b">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-tounsilm-dark.svg">
-      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-tounsilm-light.svg" width="100%" alt="TounsiLM-8B, an LLM for Tunisian Arabic: 76.2% token accuracy. QLoRA continued pretraining on 85M tokens plus SFT on 31.7K pairs, on Aya-Expanse-8B, chosen after benchmarking 5 LLMs">
+      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-tounsilm-light.svg" width="100%" alt="TounsiLM-8B, 76.2% token accuracy">
     </picture>
   </a>
 </p>

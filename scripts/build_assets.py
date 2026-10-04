@@ -110,53 +110,35 @@ def typing(t):
 
 
 # ---------------------------------------------------------------- cards
-def pills(x, y, labels, t, size=15):
-    out = []
-    for s in labels:
-        pw = len(s) * size * 0.58 + 22
-        out.append(f'<rect x="{x}" y="{y - size - 6}" width="{pw:.0f}" height="{size + 13}" rx="{(size + 13) / 2}" '
-                   f'fill="none" stroke="{t["border"]}"/>')
-        out.append(text(x + pw / 2, y, s, size, t["muted"], family=MONO, anchor="middle"))
-        x += pw + 10
-    return "".join(out)
-
-
 def frame(w, h, t):
     return f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="14" fill="{t["card"]}" stroke="{t["border"]}"/>'
 
 
-def wide_card(t, badge, kicker, title, lines, tags, alt):
-    w, h = 900, 230
+def slim_card(t, badge, title, line, alt):
+    w, h = 900, 112
     b = [frame(w, h, t), badge,
-         text(200, 58, kicker, 16, t["muted"], 600, spacing=1.5),
-         text(200, 100, title, 40, t["text"], 700)]
-    for i, s in enumerate(lines):
-        b.append(text(200, 140 + i * 28, s, 21, t["text"]))
-    b.append(pills(200, 206, tags, t))
+         text(130, 50, title, 26, t["text"], 700),
+         text(130, 82, line, 18, t["muted"])]
     return svg(w, h, "".join(b), alt)
 
 
 def card_indabax(t):
-    medal = (f'<circle cx="112" cy="115" r="56" fill="{t["gold"]}"/>'
-             f'<circle cx="112" cy="115" r="56" fill="none" stroke="{t["gold"]}" stroke-width="2">'
-             '<animate attributeName="r" values="56;70" dur="2.8s" repeatCount="indefinite"/>'
+    medal = (f'<circle cx="66" cy="56" r="34" fill="{t["gold"]}"/>'
+             f'<circle cx="66" cy="56" r="34" fill="none" stroke="{t["gold"]}" stroke-width="2">'
+             '<animate attributeName="r" values="34;44" dur="2.8s" repeatCount="indefinite"/>'
              '<animate attributeName="opacity" values="0.7;0" dur="2.8s" repeatCount="indefinite"/></circle>'
-             + text(112, 128, "1st", 36, t["on_gold"], 800, anchor="middle"))
-    return wide_card(t, medal, "INDABAX TUNISIA 2025 · AI HACKATHON", "1st Place",
-                     ["Predicts eNodeB anomalies in telecom networks and suggests",
-                      "resolutions with a fine-tuned BART Large model."],
-                     ["XGBoost", "LightGBM", "BART Large"],
-                     "1st Place, IndabaX Tunisia 2025 AI Hackathon")
+             + text(66, 64, "1st", 22, t["on_gold"], 800, anchor="middle"))
+    return slim_card(t, medal, "1st Place · IndabaX Tunisia 2025 AI Hackathon",
+                     "eNodeB anomaly prediction (XGBoost, LightGBM) + fine-tuned BART Large for fixes",
+                     "1st Place, IndabaX Tunisia 2025")
 
 
 def card_tounsilm(t):
-    metric = (text(112, 122, "76.2%", 40, t["accent"], 800, anchor="middle")
-              + text(112, 150, "token accuracy", 15, t["muted"], anchor="middle"))
-    return wide_card(t, metric, "LLM FOR TUNISIAN ARABIC · HUGGING FACE", "TounsiLM-8B",
-                     ["QLoRA continued pretraining on 85M tokens + SFT on 31.7K",
-                      "pairs, built on Aya-Expanse-8B after benchmarking 5 LLMs."],
-                     ["QLoRA", "SFT", "Aya-Expanse-8B"],
-                     "TounsiLM-8B: 76.2% token accuracy")
+    metric = (text(66, 60, "76.2%", 22, t["accent"], 800, anchor="middle")
+              + text(66, 80, "token acc.", 12, t["muted"], anchor="middle"))
+    return slim_card(t, metric, "TounsiLM-8B · LLM for Tunisian Arabic",
+                     "QLoRA on Aya-Expanse-8B · 85M-token pretraining + 31.7K SFT pairs",
+                     "TounsiLM-8B, 76.2% token accuracy")
 
 
 ASSETS = {"banner": banner, "typing": typing, "card-indabax": card_indabax, "card-tounsilm": card_tounsilm}
