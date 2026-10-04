@@ -12,10 +12,8 @@ SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, A
 MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace"
 
 THEMES = {
-    "light": dict(text="#1f2328", muted="#59636e", border="#d1d9e0", card="#ffffff",
-                  track="#eaeef2", accent="#0b7a6e", gold="#b7791f", on_gold="#ffffff"),
-    "dark": dict(text="#e6edf3", muted="#9198a1", border="#3d444d", card="#151b23",
-                 track="#262c36", accent="#2dd4bf", gold="#e3b341", on_gold="#1f2328"),
+    "light": dict(text="#1f2328", muted="#59636e", border="#d1d9e0", card="#ffffff", accent="#0b7a6e", gold="#b7791f", on_gold="#ffffff"),
+    "dark": dict(text="#e6edf3", muted="#9198a1", border="#3d444d", card="#151b23", accent="#2dd4bf", gold="#e3b341", on_gold="#1f2328"),
 }
 
 
@@ -127,56 +125,41 @@ def frame(w, h, t):
     return f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="14" fill="{t["card"]}" stroke="{t["border"]}"/>'
 
 
-def card_indabax(t):
+def wide_card(t, badge, kicker, title, lines, tags, alt):
     w, h = 900, 230
-    b = [frame(w, h, t),
-         f'<circle cx="112" cy="115" r="56" fill="{t["gold"]}"/>',
-         f'<circle cx="112" cy="115" r="56" fill="none" stroke="{t["gold"]}" stroke-width="2">'
-         '<animate attributeName="r" values="56;70" dur="2.8s" repeatCount="indefinite"/>'
-         '<animate attributeName="opacity" values="0.7;0" dur="2.8s" repeatCount="indefinite"/></circle>',
-         text(112, 128, "1st", 36, t["on_gold"], 800, anchor="middle"),
-         text(200, 58, "INDABAX TUNISIA 2025 · AI HACKATHON", 16, t["muted"], 600, spacing=1.5),
-         text(200, 100, "1st Place", 40, t["text"], 700),
-         text(200, 140, "Predicts eNodeB anomalies in telecom networks and suggests", 21, t["text"]),
-         text(200, 168, "resolutions with a fine-tuned BART Large model.", 21, t["text"]),
-         pills(200, 206, ["XGBoost", "LightGBM", "BART Large"], t)]
-    return svg(w, h, "".join(b), "1st Place, IndabaX Tunisia 2025 AI Hackathon")
-
-
-def metric_card(t, kicker, title, big, label, frac_from, frac_to, lines, alt):
-    w, h, x = 440, 310, 28
-    bw = w - 2 * x
-    b = [frame(w, h, t),
-         text(x, 44, kicker, 14, t["muted"], 600, spacing=1.5),
-         text(x, 78, title, 26, t["text"], 700),
-         text(x, 148, big, 56, t["accent"], 800),
-         text(x, 178, label, 17, t["muted"]),
-         f'<rect x="{x}" y="194" width="{bw}" height="8" rx="4" fill="{t["track"]}"/>',
-         f'<rect x="{x}" y="194" height="8" rx="4" fill="{t["accent"]}" width="{bw * frac_to:.1f}">'
-         f'<animate attributeName="width" from="{bw * frac_from:.1f}" to="{bw * frac_to:.1f}" '
-         'dur="1.6s" begin="0.4s" fill="freeze" calcMode="spline" keySplines="0.2 0 0.2 1" keyTimes="0;1"/></rect>']
+    b = [frame(w, h, t), badge,
+         text(200, 58, kicker, 16, t["muted"], 600, spacing=1.5),
+         text(200, 100, title, 40, t["text"], 700)]
     for i, s in enumerate(lines):
-        b.append(text(x, 240 + i * 27, s, 16, t["text"]))
+        b.append(text(200, 140 + i * 28, s, 21, t["text"]))
+    b.append(pills(200, 206, tags, t))
     return svg(w, h, "".join(b), alt)
 
 
+def card_indabax(t):
+    medal = (f'<circle cx="112" cy="115" r="56" fill="{t["gold"]}"/>'
+             f'<circle cx="112" cy="115" r="56" fill="none" stroke="{t["gold"]}" stroke-width="2">'
+             '<animate attributeName="r" values="56;70" dur="2.8s" repeatCount="indefinite"/>'
+             '<animate attributeName="opacity" values="0.7;0" dur="2.8s" repeatCount="indefinite"/></circle>'
+             + text(112, 128, "1st", 36, t["on_gold"], 800, anchor="middle"))
+    return wide_card(t, medal, "INDABAX TUNISIA 2025 · AI HACKATHON", "1st Place",
+                     ["Predicts eNodeB anomalies in telecom networks and suggests",
+                      "resolutions with a fine-tuned BART Large model."],
+                     ["XGBoost", "LightGBM", "BART Large"],
+                     "1st Place, IndabaX Tunisia 2025 AI Hackathon")
+
+
 def card_tounsilm(t):
-    return metric_card(t, "LLM · HUGGING FACE", "TounsiLM-8B", "76.2%", "token accuracy",
-                       0, 0.762,
-                       ["QLoRA CPT on 85M tokens + SFT on 31.7K", "pairs · Aya-Expanse-8B, picked from 5 LLMs"],
-                       "TounsiLM-8B: 76.2% token accuracy")
+    metric = (text(112, 122, "76.2%", 40, t["accent"], 800, anchor="middle")
+              + text(112, 150, "token accuracy", 15, t["muted"], anchor="middle"))
+    return wide_card(t, metric, "LLM FOR TUNISIAN ARABIC · HUGGING FACE", "TounsiLM-8B",
+                     ["QLoRA continued pretraining on 85M tokens + SFT on 31.7K",
+                      "pairs, built on Aya-Expanse-8B after benchmarking 5 LLMs."],
+                     ["QLoRA", "SFT", "Aya-Expanse-8B"],
+                     "TounsiLM-8B: 76.2% token accuracy")
 
 
-def card_asr(t):
-    # bar = fine-tuned WER relative to the base model (100% -> 46.9%)
-    return metric_card(t, "SPEECH-LLM · DATA2INNOV", "Tunisian ASR", "−53.1%", "word error rate vs. base model",
-                       1.0, 0.469,
-                       ["OmniASR-LLM-3B fine-tuned on 400h of", "Tunisian speech · CER 0.325 → 0.268"],
-                       "Tunisian ASR: WER reduced by 53.1%")
-
-
-ASSETS = {"banner": banner, "typing": typing, "card-indabax": card_indabax,
-          "card-tounsilm": card_tounsilm, "card-asr": card_asr}
+ASSETS = {"banner": banner, "typing": typing, "card-indabax": card_indabax, "card-tounsilm": card_tounsilm}
 
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)

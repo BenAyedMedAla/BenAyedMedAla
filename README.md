@@ -64,24 +64,10 @@
   <a href="https://huggingface.co/alabenayed/TounsiLM-8b">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-tounsilm-dark.svg">
-      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-tounsilm-light.svg" width="49%" alt="TounsiLM-8B, an LLM for Tunisian Arabic: 76.2% token accuracy. QLoRA continued pretraining on 85M tokens plus SFT on 31.7K pairs, on Aya-Expanse-8B, chosen after benchmarking 5 LLMs">
-    </picture>
-  </a>
-  <a href="https://alabenayed-portfolio.vercel.app/">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-asr-dark.svg">
-      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-asr-light.svg" width="49%" alt="Tunisian ASR: OmniASR-LLM-3B fine-tuned on 400h of Tunisian dialectal speech. WER reduced by 53.1%, CER from 0.325 to 0.268">
+      <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/card-tounsilm-light.svg" width="100%" alt="TounsiLM-8B, an LLM for Tunisian Arabic: 76.2% token accuracy. QLoRA continued pretraining on 85M tokens plus SFT on 31.7K pairs, on Aya-Expanse-8B, chosen after benchmarking 5 LLMs">
     </picture>
   </a>
 </p>
-
-### More work
-
-| Project | What and result |
-|---|---|
-| **TechTroll** · AI Engineer, current | Document-processing pipeline and RAG/LLM compliance agent for OSSUS.ai. **83% scoring accuracy** |
-| **Yonnov'IA** · fully local multi-LLM assistant | LLaMA 3.2 routing over a 4-bit, LoRA-fine-tuned Gemma 3 4B. Hybrid RAG with Qdrant, reranking and citations. FastAPI + React, Dockerized on a VPS with Grafana. **0.91 BERTScore F1 across AR/FR/EN** |
-| **FitTrac** · Seneca Innovation Center Hackathon | 4-agent LangGraph coaching workflow, LightGBM, real-time computer-vision form correction, FastAPI + Flutter. **Top 10** |
 
 ## Stack
 
@@ -118,8 +104,6 @@
 | `Reviewed` | [#993](https://github.com/kubernetes-sigs/lws/pull/993) fix: keep kind_load_image archive cleanup in a subshell | Aug 26, 2026 |
 <!-- LWS-ACTIVITY:END -->
 
-<sub>Updated daily by a GitHub Action.</sub>
-
 ---
 
 <p align="center">
@@ -127,5 +111,3 @@
   I'm looking for a team that trains models and ships them.<br>
   <a href="mailto:alabenayed214@gmail.com">Email me</a> · <a href="https://www.linkedin.com/in/benayedmedala/">LinkedIn</a> · <a href="https://alabenayed-portfolio.vercel.app/">Portfolio</a>
 </p>
-
-<p align="center"><sub>Kubernetes is a registered trademark of The Linux Foundation. The logo is used to refer to the project. This profile is not affiliated with or endorsed by the CNCF or the Kubernetes project.</sub></p>
