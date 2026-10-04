@@ -71,12 +71,12 @@
 
 ## Stack
 
-| | |
-|---|---|
-| **Model building** | PyTorch · Hugging Face · LoRA / QLoRA · TensorFlow · Scikit-learn |
-| **Serving & infra** | vLLM · Kubernetes · Docker · FastAPI · Qdrant · Terraform · Grafana · CI/CD |
-| **Product** | React · Next.js · NestJS · Flutter |
-| **Languages** | Python · Go · TypeScript · Java · C/C++ |
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/stack-mobile-dark.svg">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/stack-mobile-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/stack-dark.svg">
+  <img src="https://raw.githubusercontent.com/BenAyedMedAla/BenAyedMedAla/main/assets/stack-light.svg" width="100%" alt="Model building: PyTorch, Hugging Face, LoRA/QLoRA, TensorFlow, Scikit-learn. Serving and infra: vLLM, Kubernetes, Docker, FastAPI, Qdrant, Terraform, Grafana, CI/CD. Product: React, Next.js, NestJS, Flutter. Languages: Python, Go, TypeScript, Java, C/C++">
+</picture>
 
 <details>
 <summary>Full stack</summary>

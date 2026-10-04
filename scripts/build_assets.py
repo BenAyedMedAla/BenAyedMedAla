@@ -141,7 +141,66 @@ def card_tounsilm(t):
                      "TounsiLM-8B, 76.2% token accuracy")
 
 
-ASSETS = {"banner": banner, "typing": typing, "card-indabax": card_indabax, "card-tounsilm": card_tounsilm}
+# ---------------------------------------------------------------- stack
+STACK = [
+    ("MODEL BUILDING", ["PyTorch", "Hugging Face", "LoRA / QLoRA", "TensorFlow", "Scikit-learn"]),
+    ("SERVING & INFRA", ["vLLM", "Kubernetes", "Docker", "FastAPI", "Qdrant", "Terraform", "Grafana", "CI/CD"]),
+    ("PRODUCT", ["React", "Next.js", "NestJS", "Flutter"]),
+    ("LANGUAGES", ["Python", "Go", "TypeScript", "Java", "C/C++"]),
+]
+
+
+def stack(t, w=900):
+    x0, x1 = 4, w - 4
+    size, cw, ph, gap = 17, 10.2, 36, 8  # chip font, char advance, chip height, chip gap
+    dur, sweep = 9, 0.8  # highlight sweeps every chip in the first 80% of each cycle
+    chips, y, labels = [], 0, []
+    for row, (label, items) in enumerate(STACK):
+        y += 30
+        labels.append((row, y))
+        y += 14
+        x = x0
+        for item in items:
+            pw = len(item) * cw + 26
+            if x + pw > x1:
+                x, y = x0, y + ph + gap
+            chips.append((row, x, y, pw, item))
+            x += pw + gap
+        y += ph + 22
+    h = y - 6
+
+    def fade_in(row):
+        # one-time staggered reveal; stays visible where SMIL is unsupported
+        a = 0.15 * row
+        return (f'<animate attributeName="opacity" values="0;0;1" keyTimes="0;{a / (a + 0.6):.3f};1" '
+                f'dur="{a + 0.6:.2f}s" fill="freeze"/>'
+                f'<animateTransform attributeName="transform" type="translate" values="0 8;0 8;0 0" '
+                f'keyTimes="0;{a / (a + 0.6):.3f};1" dur="{a + 0.6:.2f}s" fill="freeze"/>')
+
+    b = []
+    for row, ly in labels:
+        g = [f'<circle cx="{x0 + 5}" cy="{ly - 5}" r="4" fill="{t["accent"]}"/>',
+             text(x0 + 18, ly, STACK[row][0], 14, t["muted"], 600, spacing=1.5)]
+        for i, (r, x, cy, pw, item) in enumerate(chips):
+            if r != row:
+                continue
+            at = sweep * i / (len(chips) - 1)
+            kt = "0;0.04;1" if at == 0 else f"0;{at - 0.02:.3f};{at + 0.02:.3f};{min(at + 0.1, 0.99):.3f};1"
+            vals = (f'{t["accent"]};{t["border"]};{t["border"]}' if at == 0
+                    else f'{t["border"]};{t["border"]};{t["accent"]};{t["border"]};{t["border"]}')
+            g.append(f'<rect x="{x}" y="{cy}" width="{pw:.0f}" height="{ph}" rx="{ph / 2}" '
+                     f'fill="{t["card"]}" stroke="{t["border"]}" stroke-width="1.5">'
+                     f'<animate attributeName="stroke" dur="{dur}s" repeatCount="indefinite" '
+                     f'keyTimes="{kt}" values="{vals}"/></rect>')
+            g.append(text(x + pw / 2, cy + 24, item, size, t["text"], 500, MONO, anchor="middle",
+                          extra=f' textLength="{len(item) * cw:.0f}" lengthAdjust="spacing"'))
+        b.append(f'<g>{fade_in(row)}{"".join(g)}</g>')
+    alt = "; ".join(f"{label.title()}: {', '.join(items)}" for label, items in STACK)
+    return svg(w, h, "".join(b), alt)
+
+
+ASSETS = {"banner": banner, "typing": typing, "card-indabax": card_indabax, "card-tounsilm": card_tounsilm,
+          "stack": stack, "stack-mobile": lambda t: stack(t, 440)}
 
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
