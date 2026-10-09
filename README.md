@@ -96,12 +96,12 @@
 <!-- LWS-ACTIVITY:START -->
 | | Pull request | Date |
 |---|---|---|
+| `Reviewed` | [#1141](https://github.com/kubernetes-sigs/lws/pull/1141) fix: configure Helm webhook port consistently | Oct 09, 2026 |
 | `Merged` | [#1076](https://github.com/kubernetes-sigs/lws/pull/1076) Fix Volcano PodGroup ownership check to allow typed spec.scheduling | Sep 23, 2026 |
 | `Merged` | [#1012](https://github.com/kubernetes-sigs/lws/pull/1012) Bump Kubernetes dependencies to v1.37 | Sep 11, 2026 |
 | `Reviewed` | [#1004](https://github.com/kubernetes-sigs/lws/pull/1004) Use LWS ownership for DisaggregatedSet Services | Aug 28, 2026 |
 | `Reviewed` | [#886](https://github.com/kubernetes-sigs/lws/pull/886) fix(helm): add pre-install/pre-upgrade hook for CRD management and pre… | Aug 26, 2026 |
 | `Reviewed` | [#950](https://github.com/kubernetes-sigs/lws/pull/950) (feat) DS external scaling slices support | Aug 26, 2026 |
-| `Reviewed` | [#993](https://github.com/kubernetes-sigs/lws/pull/993) fix: keep kind_load_image archive cleanup in a subshell | Aug 26, 2026 |
 <!-- LWS-ACTIVITY:END -->
 
 ---
